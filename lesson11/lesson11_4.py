@@ -1,5 +1,6 @@
 import csv
 
+
 students = [{'國文': 90, '數學': 88, '英文': 61},
             {'國文': 98, '數學': 85, '英文': 63},
             {'國文': 86, '數學': 99, '英文': 85},
@@ -15,10 +16,11 @@ students = [{'國文': 90, '數學': 88, '英文': 61},
 
 
 #建立file實體,這個實體會自動close()-> with....as
-
-with open('students.csv',mode='w',encoding='utf-8',newline='') as csvfile:
+fileName = input('請輸入檔案名稱:')
+csvName = f'{fileName}.csv'
+with open(csvName,mode='w',encoding='utf-8',newline='') as csvfile:
     writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
     writer.writeheader()
     writer.writerows(students)
 
-print('students.csv存檔完成')
+print(f'{csvName}存檔完成')
