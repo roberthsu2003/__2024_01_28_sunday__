@@ -23,8 +23,12 @@ def save_csvfile(fn:str,data:list[dict[str,int]]):
         writer.writerows(data)
     print(f'{fn}存檔完成')
 
-nums = pyip.inputInt("請輸入學生數量:")
-stus = get_student(n=nums)
-fileName = input('請輸入檔案名稱:')
-csvName = f'{fileName}.csv'
-save_csvfile(fn=csvName,data=stus)
+def main():
+    nums = pyip.inputInt("請輸入學生數量:")
+    stus = get_student(n=nums)
+    fileName = input('請輸入檔案名稱:')
+    csvName = f'{fileName}.csv'
+    save_csvfile(fn=csvName,data=stus)
+
+
+main()
