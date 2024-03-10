@@ -17,7 +17,11 @@ students = [{'國文': 90, '數學': 88, '英文': 61},
 
 
 def save_csvfile(fn:str,data:list[dict[str,int]]):
-    #建立file實體,這個實體會自動close()-> with....as
+    '''
+    儲存為csv檔
+    參數fn:str -> 檔案名稱
+    參數data:list[dict] -> dict內的key,必需是[國文,數學,英文]
+    '''
     with open(fn,mode='w',encoding='utf-8',newline='') as csvfile:
         writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
         writer.writeheader()
