@@ -15,12 +15,16 @@ students = [{'國文': 90, '數學': 88, '英文': 61},
 
 
 
-#建立file實體,這個實體會自動close()-> with....as
+
+def save_csvfile(fn:str,data:list[dict[str,int]]):
+    #建立file實體,這個實體會自動close()-> with....as
+    with open(fn,mode='w',encoding='utf-8',newline='') as csvfile:
+        writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
+        writer.writeheader()
+        writer.writerows(data)
+    print(f'{fn}存檔完成')
+
+
 fileName = input('請輸入檔案名稱:')
 csvName = f'{fileName}.csv'
-with open(csvName,mode='w',encoding='utf-8',newline='') as csvfile:
-    writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
-    writer.writeheader()
-    writer.writerows(students)
-
-print(f'{csvName}存檔完成')
+save_csvfile(fn=csvName,data=students)
