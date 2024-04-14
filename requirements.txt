@@ -9,3 +9,4 @@ Jinja2
 pandas-datareader
 yfinance
 xlrd
+Flask
