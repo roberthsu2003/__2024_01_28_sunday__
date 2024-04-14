@@ -8,3 +8,4 @@ openpyxl
 Jinja2
 pandas-datareader
 yfinance
+xlrd
